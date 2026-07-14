@@ -1,7 +1,7 @@
 import "dotenv/config";
 
 export type TtsProvider = "lucylab" | "elevenlabs" | "vbee";
-export type VideoTheme = "dark-neon" | "light-pro";
+export type VideoTheme = "dark-neon" | "light-pro" | "bct" | "bct-light";
 
 export interface TiktokConfig {
   displayName: string;
@@ -109,9 +109,10 @@ export function loadConfig(): Config {
     }
   }
 
-  const videoTheme = (process.env.VIDEO_THEME ?? "dark-neon") as VideoTheme;
-  if (videoTheme !== "dark-neon" && videoTheme !== "light-pro") {
-    throw new Error(`VIDEO_THEME must be "dark-neon" or "light-pro", got "${videoTheme}"`);
+  const videoTheme = (process.env.VIDEO_THEME ?? "bct") as VideoTheme;
+  const VALID_THEMES: VideoTheme[] = ["dark-neon", "light-pro", "bct", "bct-light"];
+  if (!VALID_THEMES.includes(videoTheme)) {
+    throw new Error(`VIDEO_THEME must be one of ${VALID_THEMES.join(", ")}, got "${videoTheme}"`);
   }
 
   return {

@@ -232,7 +232,11 @@ export async function runPipeline(scriptPath: string): Promise<void> {
   // Copy templates next to the index.html so relative paths resolve.
   // base.html.tmpl + animations.js are shared across themes (structure/behavior);
   // only styles.<theme>.css differs (visual look), and always lands as "styles.css".
-  const themeFile = cfg.videoTheme === "light-pro" ? "styles.light-pro.css" : "styles.css";
+  const themeFile =
+    cfg.videoTheme === "light-pro" ? "styles.light-pro.css"
+    : cfg.videoTheme === "bct" ? "styles.bct.css"
+    : cfg.videoTheme === "bct-light" ? "styles.bct-light.css"
+    : "styles.css";
   await copyFile(join(TPL_DIR, themeFile),       join(outputDir, "styles.css"));
   await copyFile(join(TPL_DIR, "animations.js"), join(outputDir, "animations.js"));
 
