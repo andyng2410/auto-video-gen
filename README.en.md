@@ -348,8 +348,8 @@ VBEE_VOICE_CODE=n_hanoi_male_protrainer_education_vc
 ### TikTok follow card (optional, all defaults work)
 
 ```env
-TIKTOK_DISPLAY_NAME=CườngIT
-TIKTOK_HANDLE=@cuongit96
+TIKTOK_DISPLAY_NAME=BCT Global
+TIKTOK_HANDLE=@bctglobal
 TIKTOK_FOLLOWERS=2k followers
 TIKTOK_AVATAR_URL=https://example.com/your-avatar.jpg   # optional
 ```
